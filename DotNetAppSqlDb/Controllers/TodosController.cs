@@ -14,14 +14,14 @@ namespace DotNetAppSqlDb.Controllers
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: Todos
+        
         public ActionResult Index()
         {            
             Trace.WriteLine("GET /Todos/Index");
             return View(db.Todoes.ToList());
         }
 
-        // GET: Todos/Details/5
+       
         public ActionResult Details(int? id)
         {
             Trace.WriteLine("GET /Todos/Details/" + id);
@@ -37,16 +37,14 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Create
+        
         public ActionResult Create()
         {
             Trace.WriteLine("GET /Todos/Create");
             return View(new Todo { CreatedDate = DateTime.Now });
         }
 
-        // POST: Todos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Description,CreatedDate")] Todo todo)
@@ -62,7 +60,7 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             Trace.WriteLine("GET /Todos/Edit/" + id);
@@ -78,9 +76,6 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // POST: Todos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Description,CreatedDate")] Todo todo)
@@ -95,7 +90,7 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Delete/5
+       
         public ActionResult Delete(int? id)
         {
             Trace.WriteLine("GET /Todos/Delete/" + id);
@@ -111,7 +106,7 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // POST: Todos/Delete/5
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
